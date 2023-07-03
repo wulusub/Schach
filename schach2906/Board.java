@@ -12,17 +12,17 @@ public class Board{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1600, 845);
         frame.setLocation(100, 100);
-        ImageIcon image = new ImageIcon(".\\images\\frame_icon.jpg");
+        ImageIcon image = new ImageIcon("schach2906/images/frame_icon.jpg");
         frame.setIconImage(image.getImage());
         frame.setResizable(false);
         frame.setLayout(null);
 
-        JLabel king_black = new JLabel(new ImageIcon(".\\images\\king_white.png"));
+        JLabel king_black = new JLabel(new ImageIcon("schach2906/images/king_white.png"));
         king_black.setBounds(350, 0, 90 ,90 );
 
         // Brett als Label displayen
         cboard = new JLabel();
-        cboard.setIcon(new ImageIcon(".\\images\\chessboard.png"));
+        cboard.setIcon(new ImageIcon("schach2906/images/chessboard.png"));
         cboard.setBounds(350,0,700,700);
 
         frame.add(king_black);
