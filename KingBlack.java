@@ -2,8 +2,6 @@ import javax.swing.ImageIcon;
 public class KingBlack {
     public ImageIcon image;
     public int posx,posy;
-
-    //ughe
     
 
     public KingBlack(int x , int y){
