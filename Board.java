@@ -10,19 +10,20 @@ public class Board{
         /// Frame erstellen
         frame = new JFrame("Schach - Roman, Nick");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1600, 845);
+        //  Height 
+        frame.setSize(1600, 840);
         frame.setLocation(100, 100);
         ImageIcon image = new ImageIcon("images/frame_icon.jpg");
         frame.setIconImage(image.getImage());
         frame.setResizable(false);
         frame.setLayout(null);
 
-        JLabel king_black = new JLabel(new ImageIcon("images/king_white.png"));
-        king_black.setBounds(720, 720, 100 ,100 );
+        JLabel king_black = new JLabel(new ImageIcon("images/king_white3.png"));
+        king_black.setBounds(410, 10, 80 ,80 );
 
         // Brett als Label displayen
         cboard = new JLabel();
-        cboard.setIcon(new ImageIcon("images/chessboard.png"));
+        cboard.setIcon(new ImageIcon("images/chessboard2.png"));
         cboard.setBounds(400,0,800,800);
 
         frame.add(king_black);
