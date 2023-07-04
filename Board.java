@@ -12,13 +12,13 @@ public class Board{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1600, 845);
         frame.setLocation(100, 100);
-        ImageIcon image = new ImageIcon("images/framce_icon.jpg");
+        ImageIcon image = new ImageIcon("images/frame_icon.jpg");
         frame.setIconImage(image.getImage());
         frame.setResizable(false);
         frame.setLayout(null);
 
-        JLabel king_black = new JLabel(new ImageIcon("images/king_black.png"));
-        king_black.setBounds(400, 0, 90 ,90 );
+        JLabel king_black = new JLabel(new ImageIcon("images/king_white.png"));
+        king_black.setBounds(720, 720, 100 ,100 );
 
         // Brett als Label displayen
         cboard = new JLabel();
