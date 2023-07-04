@@ -15,11 +15,11 @@ public class KingWhite {
     public KingWhite(int x , int y){
         posx = x;
         posy = y;
-        image = new ImageIcon("images/king_white3.png");
+        image = new ImageIcon("images/king_white.png");
     }
 
     public KingWhite(){
-        image = new ImageIcon("images/king_white3.png");
+        image = new ImageIcon("images/king_white.png");
     }
 
     public int fwd() {
