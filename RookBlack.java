@@ -1,6 +1,14 @@
+/*
+
+@author Nick, Roman
+
+@version 0407
+
+ */
+
 import javax.swing.ImageIcon;
 
-public class RookBlack {
+public class RookBlack extends KingWhite{
     public ImageIcon image;
     public int posx,posy;
     
@@ -19,7 +27,7 @@ public class RookBlack {
     public int[] fwd_one(int distance){
         if(posy-distance*80 > 0) {
             for(int i=0; i>distance; i++){
-                RookBlack.fwd();
+                fwd();
             }
             return new int[]{posx, posy-distance*80};
         } else{
@@ -31,7 +39,7 @@ public class RookBlack {
     public int[] bwd_one(int distance){
         if(posy+distance*80 < 800) {
             for(int i=0; i>distance; i++){
-                RookBlack.bwd();
+                bwd();
             }
             return new int[]{posx, posy+distance*80};
         } else {
@@ -40,22 +48,26 @@ public class RookBlack {
     }
 
     //Bewegen nach Links
-    public int[] swL_one(int distance){
+    public int[] swl_one(int distance){
         if(posx-distance*80 > 400) {
-            for(int i=0; i>distance; i++){
-                RookBlack.swL();
+            for(int i=0; i<distance; i++){
+                swl();
             }
             return new int[]{posx-distance*80, posy};
+        } else {
+            return new int[]{-1};
         }
     }
     
     //Bewegen nach Rechts
-    public int[] swR_one(int distance){
+    public int[] swr_one(int distance){
         if(posx+distance*80 < 1200) {
-            for(int i=0; i>distance; i++){
-                RookBlack.swR();
+            for(int i=0; i<distance; i++){
+                swr();
             }
             return new int[]{posx+distance*80, posy};
+        } else {
+            return new int[]{-1};
         }
     }
 }
