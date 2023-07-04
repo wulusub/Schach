@@ -48,22 +48,26 @@ public class RookBlack extends KingBlack{
     }
 
     //Bewegen nach Links
-    public int[] swL_one(int distance){
+    public int[] swl_one(int distance){
         if(posx-distance*80 > 400) {
-            for(int i=0; i>distance; i++){
+            for(int i=0; i<distance; i++){
                 swl();
             }
             return new int[]{posx-distance*80, posy};
+        } else {
+            return new int[]{-1};
         }
     }
     
     //Bewegen nach Rechts
-    public int[] swR_one(int distance){
+    public int[] swr_one(int distance){
         if(posx+distance*80 < 1200) {
-            for(int i=0; i>distance; i++){
+            for(int i=0; i<distance; i++){
                 swr();
             }
             return new int[]{posx+distance*80, posy};
+        } else {
+            return new int[]{-1};
         }
     }
 }
