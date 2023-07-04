@@ -98,4 +98,15 @@ public class KnightBlack extends KingBlack {
             return new int[]{-1};
         }
     }
+
+    //Bewegen nach Unten-Rechts
+    public int[] bwd_two(){
+        if(posx+80 < 1200 && posy+160 < 800){
+            bwd();
+            diRL();
+            return new int[]{posx+80, posy+160};
+        } else {
+            return new int[]{-1};
+        }
+    }
 }
