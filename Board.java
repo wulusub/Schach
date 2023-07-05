@@ -13,7 +13,8 @@ public class Board{
     public JFrame frame;
     public JLabel cboard;
     public int[][][] board_matrix;
-    public String board_position;
+    public String[][] board_position;
+    public String pgn_position;
 
     public Board() {startSetup(); }
 
@@ -48,9 +49,10 @@ public class Board{
             }
         }
 
-        board_position = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
+        board_position = new String[8][8];
 
-        boardPosition(board_position);
+        pgn_position = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
+        boardPosition(pgn_position);
 
         /// Weiße Figuren
         KingWhite white_king = new KingWhite(board_matrix[7][4][0], board_matrix[7][4][1]);  // König platziert auf row=8; col=5; und (0|1) = (x|y) Koordinate
@@ -77,6 +79,9 @@ public class Board{
 
     public void boardPosition(String pgn){
         int i=0;
+        int black_pawn_num=0;
+        int white_pawn_num=0;
+
         for (int col=0; col<8; col++){
             for(int row=0; row<8; row++) {
                 switch (pgn.charAt(i)) {
@@ -85,43 +90,90 @@ public class Board{
                             black_rook_one.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
                             print(black_rook_one);
                             black_rook_one.set = true;
+                            i++;
                             continue;
                         }
                         black_rook_two.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
                         print(black_rook_two);
-                        continue;
+                        i++;
                     }
                     case (char) "n" -> {
                         if (black_knight_one.set != true) {
                             black_knight_one.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
                             print(black_knight_one);
                             black_knight_one.set = true;
+                            i++;
                             continue;
                         }
                         black_knight_two.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
                         print(black_knight_two);
-                        continue;
+                        i++;
                     }
                     case (char) "b" -> {
                         if (black_bishop_one.set != true) {
                             black_bishop_one.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
                             print(black_bishop_one);
                             black_bishop_one.set = true;
+                            i++;
                             continue;
                         }
                         black_bishop_two.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
                         print(black_bishop_two);
-                        continue;
+                        i++;
                     }
                     case (char) "q" -> {
                         black_queen.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
                         print(black_queen);
-                        continue;
+                        i++;
                     }
                     case (char) "k" -> {
                         black_king.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
                         print(black_king);
-                        continue;
+                        i++;
+                    }
+                    case (char) "p" -> {
+                        switch (black_pawn_num){
+                            case 0 -> {
+                                black_pawn_one.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
+                                print(black_pawn_one);
+                                i++;
+                            }
+                            case 1 -> {
+                                black_pawn_two.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
+                                print(black_pawn_two);
+                                i++;
+                            }
+                            case 2 -> {
+                                black_pawn_three.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
+                                print(black_pawn_three);
+                                i++;
+                            }
+                            case 3 -> {
+                                black_pawn_four.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
+                                print(black_pawn_four);
+                                i++;
+                            }
+                            case 4 -> {
+                                black_pawn_five.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
+                                print(black_pawn_five);
+                                i++;
+                            }
+                            case 5 -> {
+                                black_pawn_six.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
+                                print(black_pawn_six);
+                                i++;
+                            }
+                            case 6 -> {
+                                black_pawn_seven.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
+                                print(black_pawn_seven);
+                                i++;
+                            }
+                            case 7 -> {
+                                black_pawn_eight.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
+                                print(black_pawn_eight);
+                                i++;
+                            }
+                        }
                     }
 
                     // White Pieces
@@ -130,49 +182,95 @@ public class Board{
                             white_rook_one.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
                             print(white_rook_one);
                             white_rook_one.set = true;
+                            i++;
                             continue;
                         }
                         black_rook_two.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
                         print(white_rook_two);
-                        continue;
+                        i++;
                     }
                     case (char) "N" -> {
                         if (white_knight_one.set != true) {
                             white_knight_one.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
                             print(white_knight_one);
                             white_knight_one.set = true;
+                            i++;
                             continue;
                         }
                         white_knight_two.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
                         print(white_knight_two);
-                        continue;
+                        i++;
                     }
                     case (char) "B" -> {
                         if (white_bishop_one.set != true) {
                             white_bishop_one.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
                             print(white_bishop_one);
                             white_bishop_one.set = true;
+                            i++;
                             continue;
                         }
                         white_bishop_two.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
                         print(white_bishop_two);
-                        continue;
+                        i++;
                     }
                     case (char) "Q" -> {
                         white_queen.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
                         print(white_queen);
-                        continue;
+                        i++;
                     }
                     case (char) "K" -> {
                         white_king.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
                         print(white_king);
-                        continue;
+                        i++;
                     }
+                    case (char) "P" -> {
+                        switch (white_pawn_num){
+                            case 0 -> {
+                                white_pawn_one.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
+                                print(white_pawn_one);
+                                i++;
+                            }
+                            case 1 -> {
+                                white_pawn_two.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
+                                print(white_pawn_two);
+                                i++;
+                            }
+                            case 2 -> {
+                                white_pawn_three.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
+                                print(white_pawn_three);
+                                i++;
+                            }
+                            case 3 -> {
+                                white_pawn_four.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
+                                print(white_pawn_four);
+                                i++;
+                            }
+                            case 4 -> {
+                                white_pawn_five.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
+                                print(white_pawn_five);
+                                i++;
+                            }
+                            case 5 -> {
+                                white_pawn_six.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
+                                print(white_pawn_six);
+                                i++;
+                            }
+                            case 6 -> {
+                                white_pawn_seven.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
+                                print(white_pawn_seven);
+                                i++;
+                            }
+                            case 7 -> {
+                                white_pawn_eight.changeCords(board_matrix[col][row][0], board_matrix[col][row][1]);
+                                print(white_pawn_eight);
+                                i++;
+                            }
+                        }
+                    }
+
                     default -> i += (int) pgn.charAt(i);
                 }
-                i++;
             }
-            i++;
         }
     }
 
