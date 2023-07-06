@@ -1,6 +1,6 @@
 /*
 
-@author Nick, Roman, Sönke
+@author Nick, Roman, Sönke, Mathis
 
 @version 0407
 
@@ -9,18 +9,17 @@
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
-
 public class Rook extends King{
     public ImageIcon image;
     public int posx,posy;
     public JFrame frame;
     
 
-    public Rook(int x , int y, String path, JFrame frame_con){
+    public Rook(int x , int y,String path,JFrame frame_con){
         posx = x;
         posy = y;
-        image = new ImageIcon("images/"+ path + ".png");
-        frame_con = frame;
+        image = new ImageIcon("images/"+path+".png");
+        frame = frame_con;
     }
 
     //Bewegen nach Vorne
