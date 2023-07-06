@@ -1,6 +1,6 @@
 /*
 
-@author Nick, Roman
+@author Nick, Roman, Sönke
 
 @version 0407
 
