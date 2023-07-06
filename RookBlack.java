@@ -7,20 +7,20 @@
  */
 
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
-public class RookBlack extends KingWhite{
+
+public class Rook extends King{
     public ImageIcon image;
     public int posx,posy;
+    public JFrame frame;
     
 
-    public RookBlack(int x , int y){
+    public Rook(int x , int y, String path, JFrame frame_con){
         posx = x;
         posy = y;
-        image = new ImageIcon("images/rook_black.png");
-    }
-
-    public RookBlack(){
-        image = new ImageIcon("images/rook_black.png");
+        image = new ImageIcon("images/"+ path + ".png");
+        frame_con = frame;
     }
 
     //Bewegen nach Vorne
