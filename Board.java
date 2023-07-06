@@ -8,6 +8,7 @@
 
 import javax.swing.ImageIcon;
 import javax.swing.*;
+import java.sql.*;
 
 public class Board{
     public JFrame frame;
@@ -55,16 +56,16 @@ public class Board{
         boardPosition(pgn_position);
 
         /// Weiße Figuren
-        KingWhite white_king = new KingWhite(board_matrix[7][4][0], board_matrix[7][4][1]);  // König platziert auf row=8; col=5; und (0|1) = (x|y) Koordinate
+        King white_king = new King(board_matrix[7][4][0], board_matrix[7][4][1], "white_king" , frame);  // König platziert auf row=8; col=5; und (0|1) = (x|y) Koordinate
         JLabel white_king_label = new JLabel(white_king.image);
         white_king_label.setBounds(white_king.posx, white_king.posy , 80 , 80);
 
         /// Schwarze Figuren
-        KnightBlack black_knight_one = new KnightBlack(board_matrix[0][1][0], board_matrix[0][1][1]);
+        Knight black_knight_one = new Knight(board_matrix[0][1][0], board_matrix[0][1][1], "knight_black" , frame);
         JLabel black_knight_one_label = new JLabel(black_knight_one.image);
         black_knight_one_label.setBounds(black_knight_one.posx, black_knight_one.posy, 80, 80);
 
-        KnightBlack black_knight_two = new KnightBlack(board_matrix[0][6][0], board_matrix[0][6][1]);
+        Knight black_knight_two = new Knight(board_matrix[0][6][0], board_matrix[0][6][1]);
         JLabel black_knight_two_label = new JLabel(black_knight_two.image);
         black_knight_two_label.setBounds(black_knight_two.posx, black_knight_two.posy, 80, 80);
 

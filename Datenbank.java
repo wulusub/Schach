@@ -1,3 +1,11 @@
+/*
+
+@author Nick
+
+@version 0607
+
+ */
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -15,8 +23,6 @@ public class Datenbank {
 
             // Verbindung zur Datenbank herstellen
             connection = DriverManager.getConnection("jdbc:sqlite:" + dbFile);
-            
-            clearTable(connection);    
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -26,14 +32,13 @@ public class Datenbank {
 
     Statement statement = null;
     ResultSet resultSet = null;
-    public void tabelleErstellen(String eingabe){
+    public void tabelleErstellen(){
         try {
             statement = connection.createStatement();
 
             // Tabelle erstellen
             String createTableQuery = "CREATE TABLE IF NOT EXISTS zuege (Zugnummer INT, Zug TEXT)";
             statement.executeUpdate(createTableQuery);
-            insertDataIntoTable(connection, eingabe);
 
         } catch (SQLException e) {
             e.printStackTrace();
