@@ -19,7 +19,7 @@ public class Pawn extends King {
         posy = y;
         image = new ImageIcon("images/"+ path + ".png");
     }
-
+   //Bewegen nach vorne
      public int[] one_fwd {
         if(posy-80 > 0) {
                 fwd();
@@ -29,6 +29,7 @@ public class Pawn extends King {
             return new int[]{-1};
         }
     }
+ //Bewegen von Startposition um Zwei nach vorne
      public int[] two_fwd {
         if(posy==560) {
                 fwd();
@@ -39,5 +40,22 @@ public class Pawn extends King {
             return new int[]{-1};
         }
     }
-
+ //Diagonales Bewegen Links-Oben (eigentlich schlagen)
+ public int[] left_up{
+  if(posx-80>0 && posy-80>0){
+  diLU();
+  return new int[]{posx-80;posy-80}
+ } else{
+            return new int[]{-1};
+        }
+  }
+//Diagonales Bewegen Rechts_Oben (eigentlich schlagen)
+public int[] right_up{
+  if(posx+80<1200 && posy-80>0){
+  diLU();
+  return new int[]{posx+80;posy-80}
+ } else {
+            return new int[]{-1};
+        }
+  }
 }
