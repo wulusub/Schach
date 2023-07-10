@@ -29,6 +29,20 @@ public class Pawn extends King {
 
     }
 
+    public int fwd2squares() {
+        if (posy-80 > 0) {
+            posy -= 80;
+            return -80;
+        }
+        throw new IllegalArgumentException("Figur kann nicht sich nicht außerhalb des Feldes bewegen!");
+       if (posy-80 > 0) {
+            posy -= 80;
+            return -80;
+        }
+        throw new IllegalArgumentException("Figur kann nicht sich nicht außerhalb des Feldes bewegen!")
+
+    }
+
      //Exceptions fehlen (nur diagonal wenn man schlägt)
     public int[] diagLeftup(){
         try {
