@@ -44,7 +44,7 @@ public class Pawn extends King {
  public int[] left_up{
   if(posx-80>0 && posy-80>0){
   diLU();
-  return new int[]{posx-80;posy-80}
+  return new int[]{posx-80;posy-80
  } else{
             return new int[]{-1};
         }
@@ -52,8 +52,8 @@ public class Pawn extends King {
 //Diagonales Bewegen Rechts_Oben (eigentlich schlagen)
 public int[] right_up{
   if(posx+80<1200 && posy-80>0){
-  diLU();
-  return new int[]{posx+80;posy-80}
+  diRU();
+  return new int[]{posx+80;posy-80
  } else {
             return new int[]{-1};
         }
