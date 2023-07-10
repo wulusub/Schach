@@ -2,12 +2,12 @@
 @author Mathis 
 */
 import javax.swing.ImageIcon;
-public class KnightBlack extends King {
+public class Bishop extends King {
    public ImageIcon image;
     public int posx,posy;
     
 
-    public KnightBlack(int x , int y, String path, JFrame frame_con){
+    public Bishop(int x , int y, String path, JFrame frame_con){
         super(x, y, path, frame_con);
         image = new ImageIcon("images/"+ path +".png");
     }
