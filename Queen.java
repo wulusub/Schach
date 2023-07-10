@@ -1,6 +1,6 @@
 /*
 
-@author Sönke
+@author Robert, Sönke
 
 @version 1007
 
