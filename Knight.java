@@ -1,15 +1,17 @@
 /*
 
-@author Nick, Roman
+@author Nick, Roman, Robert
 
 @version 0407
 
  */
 
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 public class KnightBlack extends KingWhite {
     public ImageIcon image;
     public int posx,posy;
+    public JFrame frame;
     
 
     public KnightBlack(int x , int y){

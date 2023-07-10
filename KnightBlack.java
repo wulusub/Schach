@@ -1,26 +1,26 @@
 /*
 
-@author Nick, Roman
+@author Nick, Roman, Robert
 
 @version 0407
 
  */
 
 import javax.swing.ImageIcon;
-public class KnightBlack extends KingWhite {
+import javax.swing.JFrame;
+public class KnightBlack extends King {
     public ImageIcon image;
     public int posx,posy;
+    public JFrame frame;
     
 
-    public KnightBlack(int x , int y){
+    public KnightBlack(int x , int y, String path, JFrame frame_con){
+        super(x, y, path, frame_con);
         posx = x;
         posy = y;
-        image = new ImageIcon("images/king_black.png");
+        image = new ImageIcon("images/SS80x80.png");
     }
 
-    public KnightBlack(){
-        image = new ImageIcon("images/knight_black.png");
-    }
 
     //Bewegen nach Vorne-Links
     public int[] fwd_one(){
