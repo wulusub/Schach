@@ -21,39 +21,39 @@ public class Pawn extends King {
     }
    //Bewegen nach vorne
      public int[] one_fwd {
-        if(posy-80 > 0) {
+        if(posy-100 > 0) {
                 fwd();
             
-            return new int[]{posx, posy-80};
+            return new int[]{posx, posy-100};
         } else{
             return new int[]{-1};
         }
     }
  //Bewegen von Startposition um Zwei nach vorne
      public int[] two_fwd {
-        if(posy==560) {
+        if(posy==610) {
                 fwd();
                 fwd();
             
-            return new int[]{posx, posy-160};
+            return new int[]{posx, posy-200};
         } else{
             return new int[]{-1};
         }
     }
  //Diagonales Bewegen Links-Oben (eigentlich schlagen)
  public int[] left_up{
-  if(posx-80>0 && posy-80>0){
+  if(posx-100>400 && posy-100>0){
   diLU();
-  return new int[]{posx-80;posy-80
+  return new int[]{posx-100;posy-100
  } else{
             return new int[]{-1};
         }
   }
 //Diagonales Bewegen Rechts_Oben (eigentlich schlagen)
 public int[] right_up{
-  if(posx+80<1200 && posy-80>0){
+  if(posx+100<1200 && posy-100>0){
   diRU();
-  return new int[]{posx+80;posy-80
+  return new int[]{posx+100;posy-100
  } else {
             return new int[]{-1};
         }
