@@ -25,33 +25,33 @@ public class King {
     }
 
     public int fwd() {
-        if (posy-80 > 0) {
-            posy -= 80;
-            return -80;
+        if (posy-100 > 0) {
+            posy -= 100;
+            return -100;
         }
         throw new IllegalArgumentException("Figur kann nicht sich nicht außerhalb des Feldes bewegen!");
 
     }
 
     public int bwd() {
-        if (posy + 80 < 800) {
-            posy += 80;
-            return 80;
+        if (posy + 100 < 800) {
+            posy += 100;
+            return 100;
         }
         throw new IllegalArgumentException("Figur kann nicht sich nicht außerhalb des Feldes bewegen!");
     }
 
     public int swl(){
-        if(posx - 80 > 400){
-            posx -= 80;
-            return -80;
+        if(posx - 100 > 400){
+            posx -= 100;
+            return -100;
         }
         throw new IllegalArgumentException("Figur kann nicht sich nicht außerhalb des Feldes bewegen!");
     }
 
     public int swr(){
-        if(posx + 80 < 1200){
-            posx += 80;
+        if(posx + 100 < 1200){
+            posx += 100;
         }
         throw new IllegalArgumentException("Figur kann nicht sich nicht außerhalb des Feldes bewegen!");
     }
