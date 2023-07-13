@@ -25,7 +25,7 @@ public class Bishop extends King {
     }
 
     //Bewegen nach Vorne-Rechts
-    public int[] fwd_DR(){
+    public int[] fwd_DR(int distance){
         if(posy-distance*100 > 0 && posx+distance*100 < 1200){
             diRU();
             return new int[]{posx+distance*100, posy-distance*100};
@@ -35,7 +35,7 @@ public class Bishop extends King {
     }
 
     //Bewegen nach Hinten-Links
-    public int[] bwd_DL(){
+    public int[] bwd_DL(int distance){
         if(posx-distance*100 > 400 && posy+distance*100 < 800){
             diLL();
             return new int[]{posx-distance*100, posy+distance*100};
@@ -45,7 +45,7 @@ public class Bishop extends King {
     }
 
     //Bewegen nach Hinten-Rechts
-     public int[] bwd_DR(){
+     public int[] bwd_DR(int distance){
         if(posy+distance*100 < 800 && posx+distance*100 < 1200){
             diRL();
             return new int[]{posx+distance*100, posy+distance*100};
