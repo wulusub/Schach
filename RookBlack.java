@@ -24,11 +24,11 @@ public class Rook extends King{
 
     //Bewegen nach Vorne
     public int[] fwd_one(int distance){
-        if(posy-distance*80 > 0) {
+        if(posy-distance*100 > 0) {
             for(int i=0; i>distance; i++){
                 fwd();
             }
-            return new int[]{posx, posy-distance*80};
+            return new int[]{posx, posy-distance*100};
         } else{
             return new int[]{-1};
         }
@@ -36,11 +36,11 @@ public class Rook extends King{
 
     //Bewegen nach Hinten
     public int[] bwd_one(int distance){
-        if(posy+distance*80 < 800) {
+        if(posy+distance*100 < 800) {
             for(int i=0; i>distance; i++){
                 bwd();
             }
-            return new int[]{posx, posy+distance*80};
+            return new int[]{posx, posy+distance*100};
         } else {
             return new int[]{-1};
         }
@@ -48,11 +48,11 @@ public class Rook extends King{
 
     //Bewegen nach Links
     public int[] swl_one(int distance){
-        if(posx-distance*80 > 400) {
+        if(posx-distance*100 > 400) {
             for(int i=0; i<distance; i++){
                 swl();
             }
-            return new int[]{posx-distance*80, posy};
+            return new int[]{posx-distance*100, posy};
         } else {
             return new int[]{-1};
         }
@@ -60,11 +60,11 @@ public class Rook extends King{
     
     //Bewegen nach Rechts
     public int[] swr_one(int distance){
-        if(posx+distance*80 < 1200) {
+        if(posx+distance*100 < 1200) {
             for(int i=0; i<distance; i++){
                 swr();
             }
-            return new int[]{posx+distance*80, posy};
+            return new int[]{posx+distance*100, posy};
         } else {
             return new int[]{-1};
         }
