@@ -20,7 +20,7 @@ public class Queen extends King {
         image = new ImageIcon("images/"+ path + ".png");
     }
 
-    //King Movement, möglichkeit mehrere Felder zu moven fehlt
+    //King Movement, möglichkeit mehrere Felder zu moven fehlt...ist gegeben durch distance
     
     public int fwd() {
         if (posy-80 > 0) {
