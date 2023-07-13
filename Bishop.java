@@ -2,6 +2,7 @@
 @author Mathis 
 */
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 public class Bishop extends King {
    public ImageIcon image;
     public int posx,posy;
