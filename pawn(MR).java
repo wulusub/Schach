@@ -29,7 +29,7 @@ public class Pawn extends King {
             return new int[]{-1};
         }
     }
- //Bewegen von Startposition um Zwei nach vorne
+ //Bewegen von Startposition(nur eine Farbe bisher) um Zwei nach vorne
      public int[] two_fwd {
         if(posy==610) {
                 fwd();
