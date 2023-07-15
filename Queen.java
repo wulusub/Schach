@@ -21,10 +21,6 @@ public class Queen extends King {
         image = new ImageIcon("images/"+ path +".png");
     }
 
-    public void print(int x, int y, String[][] boardPosition){
-        
-    }
-
     
   
 

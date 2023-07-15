@@ -15,7 +15,7 @@ public class Rook extends King{
     public JFrame frame;
     
 
-    public Rook(int x , int y,String path,JFrame frame_con){
+    public Rook(int x , int y, String path, JFrame frame_con){
         posx = x;
         posy = y;
         image = new ImageIcon("images/"+path+".png");

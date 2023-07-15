@@ -9,7 +9,6 @@ public class Bishop extends King {
     
 
     public Bishop(int x , int y, String path, JFrame frame_con){
-        super(x, y, path, frame_con);
         image = new ImageIcon("images/"+ path +".png");
     }
 
