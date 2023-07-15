@@ -2,97 +2,106 @@
 
 @author Roman
 
-@version 0407
+@version 1507
 
  */
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-public class King {
+public class King extends Board{
     public ImageIcon image;
-    public int posx,posy;
+    public int col, row;
+    public int posx = matrix_cords[col][row][0];
+    public int posy = matrix_cords[col][row][1];
     public boolean set;
-
-    public King(int x , int y , String path, JFrame frame_con){
+    public King(int x , int y , String path){
         set = false;
-        posx = x;
-        posy = y;
+        col = x;
+        row = y;
         image = new ImageIcon("images/"+ path + ".png");
     }
-    
-    public void print(int x, int y, String[][] boardPosition){
-        
+
+    public King() {
     }
 
-    public int fwd() {
-        if (posy-80 > 0) {
-            posy -= 80;
-            return -80;
+    public void changeCords(int colx, int rowy){
+        col = colx;
+        row = rowy;
+    }
+
+    public void fwd() {
+        if (row-1 >= 0) {
+            row--;
+        } else {
+            throw new IllegalArgumentException("Figur kann nicht sich nicht außerhalb des Feldes bewegen!");
         }
-        throw new IllegalArgumentException("Figur kann nicht sich nicht außerhalb des Feldes bewegen!");
 
     }
 
-    public int bwd() {
-        if (posy + 80 < 800) {
-            posy += 80;
-            return 80;
+    public void bwd() {
+        if (row+1 <= 7) {
+            row++;
+        } else {
+            throw new IllegalArgumentException("Figur kann nicht sich nicht außerhalb des Feldes bewegen!");
         }
-        throw new IllegalArgumentException("Figur kann nicht sich nicht außerhalb des Feldes bewegen!");
     }
 
-    public int swl(){
-        if(posx - 80 > 400){
-            posx -= 80;
-            return -80;
+    public void swl(){
+        if (col-1 >= 0) {
+            col--;
+        } else {
+            throw new IllegalArgumentException("Figur kann nicht sich nicht außerhalb des Feldes bewegen!");
         }
-        throw new IllegalArgumentException("Figur kann nicht sich nicht außerhalb des Feldes bewegen!");
     }
 
-    public int swr(){
-        if(posx + 80 < 1200){
-            posx += 80;
+    public void swr(){
+        if (col+1 >= 0) {
+            col++;
+        } else {
+            throw new IllegalArgumentException("Figur kann nicht sich nicht außerhalb des Feldes bewegen!");
         }
-        throw new IllegalArgumentException("Figur kann nicht sich nicht außerhalb des Feldes bewegen!");
     }
 
-    public int[] diLU(){
+    public void diLU(){
         try {
-            return new int[]{fwd() , swl()};
+            fwd();
+            swl();
         }
         catch (IllegalArgumentException ex){
             System.out.println(ex.getMessage());
+            diLU();
         }
-        return diLU();
     }
 
-    public int[] diRU(){
+    public void diRU(){
         try {
-            return new int[]{fwd() , swr()};
+            fwd();
+            swr();
         }
         catch (IllegalArgumentException ex){
             System.out.println(ex.getMessage());
+            diRU();
         }
-        return diRU();
     }
 
-    public int[] diLL(){
+    public void diLL(){
         try {
-            return new int[]{bwd() , swl()};
+            bwd();
+            swl();
         }
         catch (IllegalArgumentException ex){
             System.out.println(ex.getMessage());
+            diLL();
         }
-        return diLL();
     }
 
-    public int[] diRL(){
+    public void diRL(){
         try {
-            return new int[]{bwd() , swr()};
+            bwd();
+            swr();
         }
         catch (IllegalArgumentException ex){
             System.out.println(ex.getMessage());
+            diRL();
         }
-        return diRL();
     }
 }

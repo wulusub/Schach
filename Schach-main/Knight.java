@@ -1,6 +1,6 @@
 /*
 
-@author Nick, Roman, Robert
+@author Nick, Roman
 
 @version 0407
 
@@ -8,20 +8,17 @@
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-public class KnightBlack extends KingWhite {
+public class Knight extends King {
     public ImageIcon image;
     public int posx,posy;
     public JFrame frame;
-    
 
-    public KnightBlack(int x , int y){
+    public Knight(int x , int y , String path, JFrame frame_con){
+        set = false;
         posx = x;
         posy = y;
-        image = new ImageIcon("images/king_black.png");
-    }
-
-    public KnightBlack(){
-        image = new ImageIcon("images/knight_black.png");
+        frame = frame_con;
+        image = new ImageIcon("images/"+ path + ".png");
     }
 
     //Bewegen nach Vorne-Links
