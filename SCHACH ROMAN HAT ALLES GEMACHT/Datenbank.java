@@ -15,7 +15,7 @@ import java.sql.PreparedStatement;
 public class Datenbank {
     int zug = 0;
     Connection connection = null;
-    public void datenbankErstellen() {
+    private void datenbankErstellen() {
 
         try {
             // Pfad zur SQLite-Datenbankdatei angeben
@@ -32,7 +32,7 @@ public class Datenbank {
 
     Statement statement = null;
     ResultSet resultSet = null;
-    public void tabelleErstellen(){
+    private void tabelleErstellen(){
         try {
             statement = connection.createStatement();
 
@@ -45,7 +45,7 @@ public class Datenbank {
         } 
     }
     
-    public void datenEinfuegen(Connection connection, String text){
+    private void datenEinfuegen(Connection connection, String text){
         
         try{
         // SQL-Abfrage zum Einfügen von Daten
@@ -68,7 +68,7 @@ public class Datenbank {
         }
     }
 
-    public void tabelleLeeren(Connection connection){
+    private void tabelleLeeren(Connection connection){
         
         try{
         //leert die komplette Tabelle
@@ -86,7 +86,7 @@ public class Datenbank {
         }
     }
 
-    public int letzterZug(Connection connection){
+    private int letzterZug(Connection connection){
         
         try{
         //abfragen des Wertes des letzten Eintrags der Spalte "Zug"
@@ -103,7 +103,7 @@ public class Datenbank {
         }
     }
 
-    public Datenbank(){
+    private Datenbank(){
         datenbankErstellen();
         tabelleErstellen();
         zug = letzterZug(connection);

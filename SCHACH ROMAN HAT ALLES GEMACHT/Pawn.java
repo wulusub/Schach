@@ -1,6 +1,6 @@
 /*
 
-@author Robert
+@author Robert, Roman
 
 @version 0407
 
@@ -8,54 +8,25 @@
 
  import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-public class Pawn extends King {
+public class Pawn{
     public ImageIcon image;
-    public int posx,posy;
-    public JFrame frame;
-
-    public Pawn(int x , int y, String path, JFrame frame_con){
-        super(x, y, path, frame_con);
-        posx = x;
-        posy = y;
+    private int col, row;
+    private int[][][] matrix;
+    public Pawn(int x , int y , String path , int[][][] matrix_board){
+        col = x;
+        row = y;
+        matrix = new int[8][8][2];
+        matrix = matrix_board;
         image = new ImageIcon("images/"+ path + ".png");
     }
-
-    public int fwd() {
-        if (posy-80 > 0) {
-            posy -= 80;
-            return -80;
-        }
-        throw new IllegalArgumentException("Figur kann nicht sich nicht außerhalb des Feldes bewegen!");
-
+    public int x(){
+        return matrix[col][row][0];
     }
-
-    public int fwd2squares() {
-        if (posy-80 > 0) {
-            posy -= 80;
-            return -80;
-        }
-        throw new IllegalArgumentException("Figur kann nicht sich nicht außerhalb des Feldes bewegen!");
+    public int y(){
+        return matrix[col][row][1];
     }
-
-     //Exceptions fehlen (nur diagonal wenn man schlägt)
-    public int[] diagLeftup(){
-        try {
-            return new int[]{fwd() , swl()};
-        }
-        catch (IllegalArgumentException ex){
-            System.out.println(ex.getMessage());
-        }
-        return diagLeftup();
-    }
-
-    //Exceptions fehlen (nur diagonal wenn man schlägt)
-    public int[] diagRightup(){
-        try {
-            return new int[]{fwd() , swr()};
-        }
-        catch (IllegalArgumentException ex){
-            System.out.println(ex.getMessage());
-        }
-        return diagRightup();
+    public void changeCords(int colx, int rowy){
+        col = colx;
+        row = rowy;
     }
 }

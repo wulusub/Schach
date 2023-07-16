@@ -1,6 +1,6 @@
 /*
 
-@author Roman
+@author alleine Roman
 
 @version 1507
 
@@ -12,14 +12,13 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-
 public class Board {
-    public JFrame frame;
-    public JLabel cboard;
-    public JButton submit;
-    public JTextField input;
-    public JTextArea printline;
-    public JLabel white_pawn_one_label, white_pawn_two_label, white_pawn_three_label, white_pawn_four_label,
+    private JFrame frame;
+    private JLabel cboard;
+    private JButton submit;
+    private JTextField input;
+    private JTextArea printline;
+    private JLabel white_pawn_one_label, white_pawn_two_label, white_pawn_three_label, white_pawn_four_label,
             white_pawn_five_label, white_pawn_six_label, white_pawn_seven_label, white_pawn_eight_label,
             black_pawn_one_label, black_pawn_two_label, black_pawn_three_label, black_pawn_four_label,
             black_pawn_five_label, black_pawn_six_label, black_pawn_seven_label, black_pawn_eight_label,
@@ -28,22 +27,20 @@ public class Board {
             white_bishop_one_label, white_bishop_two_label, black_bishop_one_label, black_bishop_two_label,
             white_queen_label, black_queen_label, white_king_label, black_king_label;
 
-    public Pawn white_pawn_one, white_pawn_two, white_pawn_three, white_pawn_four,
+    private Pawn white_pawn_one, white_pawn_two, white_pawn_three, white_pawn_four,
             white_pawn_five, white_pawn_six, white_pawn_seven, white_pawn_eight,
             black_pawn_one, black_pawn_two, black_pawn_three, black_pawn_four,
             black_pawn_five, black_pawn_six, black_pawn_seven, black_pawn_eight;
-    public Rook white_rook_one, white_rook_two, black_rook_one, black_rook_two;
-    public Knight white_knight_one, white_knight_two, black_knight_one, black_knight_two;
-    public Bishop white_bishop_one, white_bishop_two, black_bishop_one, black_bishop_two;
-    public Queen white_queen, black_queen;
-    public King white_king, black_king;
-    public int[][][] matrix_cords;
-    public String[][] chessboard;
-    public String pgn_position;
-    public String input_move;
+    private Rook white_rook_one, white_rook_two, black_rook_one, black_rook_two;
+    private Knight white_knight_one, white_knight_two, black_knight_one, black_knight_two;
+    private Bishop white_bishop_one, white_bishop_two, black_bishop_one, black_bishop_two;
+    private Queen white_queen, black_queen;
+    private King white_king, black_king;
+    private int[][][] matrix_cords;
+    private String[][] chessboard;
 
     public Board() {startSetup(); }
-    public void startSetup(){
+    private void startSetup(){
         /// Setup des Frames
         setupFrame();
 
@@ -63,16 +60,15 @@ public class Board {
             }
         }
 
-        pgn_position = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
-        addPGN(pgn_position);
+        String fen_position = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
+        addFEN(fen_position);
         setupPieces();
         printBoard();
 
         frame.add(cboard);
         frame.setVisible(true);
     }
-
-    public void addPGN(String pgn) {
+    private void addFEN(String pgn) {
         // Ersetze alle '/' durch leere Zeichen, um die Zeilen zu trennen
         pgn = pgn.replaceAll("/", "");
 
@@ -100,7 +96,7 @@ public class Board {
             }
         }
     }
-    public void printBoard(){
+    private void printBoard(){
         cleanBoard();
 
         int black_pawn_num = 1;
@@ -159,47 +155,47 @@ public class Board {
                     case "p":
                         // Verarbeite den Fall, wenn das Zeichen "p" ist (Schwarz: Bauer)
                         if(black_pawn_num <= 8){
-                            switch (black_pawn_num){
-                                case 1:
+                            switch (black_pawn_num) {
+                                case 1 -> {
                                     black_pawn_one.changeCords(col, row);
                                     black_pawn_one_label.setBounds(matrix_cords[col][row][0], matrix_cords[col][row][1], 80, 80);
                                     black_pawn_num++;
-                                    break;
-                                case 2:
+                                }
+                                case 2 -> {
                                     black_pawn_two.changeCords(col, row);
                                     black_pawn_two_label.setBounds(matrix_cords[col][row][0], matrix_cords[col][row][1], 80, 80);
                                     black_pawn_num++;
-                                    break;
-                                case 3:
+                                }
+                                case 3 -> {
                                     black_pawn_three.changeCords(col, row);
                                     black_pawn_three_label.setBounds(matrix_cords[col][row][0], matrix_cords[col][row][1], 80, 80);
                                     black_pawn_num++;
-                                    break;
-                                case 4:
+                                }
+                                case 4 -> {
                                     black_pawn_four.changeCords(col, row);
                                     black_pawn_four_label.setBounds(matrix_cords[col][row][0], matrix_cords[col][row][1], 80, 80);
                                     black_pawn_num++;
-                                    break;
-                                case 5:
+                                }
+                                case 5 -> {
                                     black_pawn_five.changeCords(col, row);
                                     black_pawn_five_label.setBounds(matrix_cords[col][row][0], matrix_cords[col][row][1], 80, 80);
                                     black_pawn_num++;
-                                    break;
-                                case 6:
+                                }
+                                case 6 -> {
                                     black_pawn_six.changeCords(col, row);
                                     black_pawn_six_label.setBounds(matrix_cords[col][row][0], matrix_cords[col][row][1], 80, 80);
                                     black_pawn_num++;
-                                    break;
-                                case 7:
+                                }
+                                case 7 -> {
                                     black_pawn_seven.changeCords(col, row);
                                     black_pawn_seven_label.setBounds(matrix_cords[col][row][0], matrix_cords[col][row][1], 80, 80);
                                     black_pawn_num++;
-                                    break;
-                                case 8:
+                                }
+                                case 8 -> {
                                     black_pawn_eight.changeCords(col, row);
                                     black_pawn_eight_label.setBounds(matrix_cords[col][row][0], matrix_cords[col][row][1], 80, 80);
                                     black_pawn_num++;
-                                    break;
+                                }
                             }
                         }
                         break;
@@ -250,47 +246,47 @@ public class Board {
                     case "P":
                         // Verarbeite den Fall, wenn das Zeichen "P" ist (Weiß: Bauer)
                         if(white_pawn_num <= 8){
-                            switch (white_pawn_num){
-                                case 1:
+                            switch (white_pawn_num) {
+                                case 1 -> {
                                     white_pawn_one.changeCords(col, row);
                                     white_pawn_one_label.setBounds(matrix_cords[col][row][0], matrix_cords[col][row][1], 80, 80);
                                     white_pawn_num++;
-                                    break;
-                                case 2:
+                                }
+                                case 2 -> {
                                     white_pawn_two.changeCords(col, row);
                                     white_pawn_two_label.setBounds(matrix_cords[col][row][0], matrix_cords[col][row][1], 80, 80);
                                     white_pawn_num++;
-                                    break;
-                                case 3:
+                                }
+                                case 3 -> {
                                     white_pawn_three.changeCords(col, row);
                                     white_pawn_three_label.setBounds(matrix_cords[col][row][0], matrix_cords[col][row][1], 80, 80);
                                     white_pawn_num++;
-                                    break;
-                                case 4:
+                                }
+                                case 4 -> {
                                     white_pawn_four.changeCords(col, row);
                                     white_pawn_four_label.setBounds(matrix_cords[col][row][0], matrix_cords[col][row][1], 80, 80);
                                     white_pawn_num++;
-                                    break;
-                                case 5:
+                                }
+                                case 5 -> {
                                     white_pawn_five.changeCords(col, row);
                                     white_pawn_five_label.setBounds(matrix_cords[col][row][0], matrix_cords[col][row][1], 80, 80);
                                     white_pawn_num++;
-                                    break;
-                                case 6:
+                                }
+                                case 6 -> {
                                     white_pawn_six.changeCords(col, row);
                                     white_pawn_six_label.setBounds(matrix_cords[col][row][0], matrix_cords[col][row][1], 80, 80);
                                     white_pawn_num++;
-                                    break;
-                                case 7:
+                                }
+                                case 7 -> {
                                     white_pawn_seven.changeCords(col, row);
                                     white_pawn_seven_label.setBounds(matrix_cords[col][row][0], matrix_cords[col][row][1], 80, 80);
                                     white_pawn_num++;
-                                    break;
-                                case 8:
+                                }
+                                case 8 -> {
                                     white_pawn_eight.changeCords(col, row);
                                     white_pawn_eight_label.setBounds(matrix_cords[col][row][0], matrix_cords[col][row][1], 80, 80);
                                     white_pawn_num++;
-                                    break;
+                                }
                             }
                         }
                         break;
@@ -304,64 +300,52 @@ public class Board {
         }
 
     }
-    public void inputEval(String text_input){
-        text_input = text_input.toLowerCase();
-        if(text_input.matches("[a-h][1-8]")){
-            //..
-        } else if (text_input.matches("(weißer|schwarzer)\\s+(bauer|könig|dame|turm|springer|läufer)\\s+(nach\\s+(vorne|hinten)|links|rechts|\\w\\d)")){
-            String[] split = text_input.split("\\s+");
-            String color = split[0];
-            String piece = split[1];
-            String move =  split[2];
-
-            if (getPieceName(piece, color).equals("white_king")) {
-                
-            }
-
-        } else if (text_input.matches("(weißer|schwarzer)\\s+(bauer|könig|dame|turm|springer|läufer)\\s+[a-h][1-8]")){
-
+    private void inputEval(String text_input){
+        if (!isValidFEN(text_input)){
+            print("Invalider FEN");
         } else {
-
+            print("Valider FEN");
+            addFEN(text_input);
+            printBoard();
         }
     }
-
-    public int[] getPositionIndices(String position) {
-        if (position.length() != 2) {
-            throw new IllegalArgumentException("Invalid position format. Expected format: [a-h][1-8]");
+    private boolean isValidFEN(String fen) {
+        if (!fen.matches("^[rnbkqpRNBKQP12345678]+$")){
+            return  false;
+        }
+        if (fen.split("/").length != 8){
+            return false;
         }
 
-        char fileChar = position.charAt(0);
-        char rankChar = position.charAt(1);
-
-        if (fileChar < 'a' || fileChar > 'h' || rankChar < '1' || rankChar > '8') {
-            throw new IllegalArgumentException("Invalid position. Valid positions are from a1 to h8.");
+        fen = fen.replaceAll("/", "");
+        fen = fen.replaceAll("1", "");
+        fen = fen.replaceAll("2", "");
+        fen = fen.replaceAll("3", "");
+        fen = fen.replaceAll("4", "");
+        fen = fen.replaceAll("5", "");
+        fen = fen.replaceAll("6", "");
+        fen = fen.replaceAll("7", "");
+        fen = fen.replaceAll("8", "");
+        if(fen.length() > 32){
+            return false;
         }
 
-        int file = fileChar - 'a';
-        int rank = rankChar - '1';
-
-        return new int[]{rank, file};
+        return letterCount(fen, 'r') <= 2 && letterCount(fen, 'R') <= 2
+                && letterCount(fen, 'N') <= 2 && letterCount(fen, 'N') <= 2 && letterCount(fen, 'b') <= 2 && letterCount(fen, 'B') <= 2
+                && letterCount(fen, 'k') <= 1 && letterCount(fen, 'K') <= 1 && letterCount(fen, 'q') <= 1 && letterCount(fen, 'Q') <= 1;
     }
-    private String getPieceName(String piece, String color) {
-        String figurenFarbe = color.equals("weißer") ? "white" : "black";
-        switch (piece) {
-            case "bauer":
-                return figurenFarbe + "_pawn";
-            case "könig":
-                return figurenFarbe + "_king";
-            case "dame":
-                return figurenFarbe + "_queen";
-            case "turm":
-                return figurenFarbe + "_rook";
-            case "springer":
-                return figurenFarbe + "_knight";
-            case "läufer":
-                return figurenFarbe + "_bishop";
-            default:
-                return "";
+    private  int letterCount(String inputString, char c) {
+        int count = 0;
+
+        for (int i = 0; i < inputString.length(); i++) {
+            if (inputString.charAt(i) == c) {
+                count++;
+            }
         }
+
+        return count;
     }
-    public void setupFrame(){
+    private void setupFrame(){
         frame = new JFrame("Schach - Roman, Nick");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1600, 840);
@@ -378,12 +362,13 @@ public class Board {
 
         printline = new JTextArea();
         printline.setPreferredSize(new Dimension(200, 50));
-        printline.setBounds(910, 410, 200, 50);
+        printline.setBounds(1310, 410, 200, 50);
+        printline.setEditable(false);
         frame.add(printline);
 
         input = new JTextField();
         input.setPreferredSize(new Dimension(200, 50));
-        input.setBounds(910, 510, 200, 50);
+        input.setBounds(1310, 510, 200, 50);
         frame.add(input);
 
         submit = new JButton("Eingabe");
@@ -394,48 +379,48 @@ public class Board {
             }
         });
         submit.setPreferredSize(new Dimension(200, 50));
-        submit.setBounds(910, 610, 200, 50);
+        submit.setBounds(1310, 610, 200, 50);
         frame.add(submit);
     }
-    public void setupPieces(){
+    private void setupPieces(){
         // Black Pieces
-        black_rook_one = new Rook(0,0, "ST80x80");
-        black_rook_two = new Rook(0,0, "ST80x80");
+        black_rook_one = new Rook(0,0, "ST80x80", matrix_cords);
+        black_rook_two = new Rook(0,0, "ST80x80", matrix_cords);
         black_rook_one_label = new JLabel(black_rook_one.image);
         black_rook_two_label = new JLabel(black_rook_two.image);
         frame.add(black_rook_one_label);
         frame.add(black_rook_two_label);
 
-        black_knight_one = new Knight(0,0, "SS80x80");
-        black_knight_two = new Knight(0,0, "SS80x80");
+        black_knight_one = new Knight(0,0, "SS80x80", matrix_cords);
+        black_knight_two = new Knight(0,0, "SS80x80", matrix_cords);
         black_knight_one_label = new JLabel(black_knight_one.image);
         black_knight_two_label = new JLabel(black_knight_two.image);
         frame.add(black_knight_one_label);
         frame.add(black_knight_two_label);
 
-        black_bishop_one = new Bishop(0,0, "SL80x80");
-        black_bishop_two = new Bishop(0,0, "SL80x80");
+        black_bishop_one = new Bishop(0,0, "SL80x80", matrix_cords);
+        black_bishop_two = new Bishop(0,0, "SL80x80", matrix_cords);
         black_bishop_one_label = new JLabel(black_bishop_one.image);
         black_bishop_two_label = new JLabel(black_bishop_two.image);
         frame.add(black_bishop_one_label);
         frame.add(black_bishop_two_label);
 
-        black_queen = new Queen(0,0, "SD80x80");
+        black_queen = new Queen(0,0, "SD80x80", matrix_cords);
         black_queen_label = new JLabel(black_queen.image);
         frame.add(black_queen_label);
 
-        black_king = new King(0,0, "SK80x80");
+        black_king = new King(0,0, "SK80x80", matrix_cords);
         black_king_label = new JLabel(black_king.image);
         frame.add(black_king_label);
 
-        black_pawn_one = new Pawn(0,0, "SB80x80");
-        black_pawn_two = new Pawn(0,0, "SB80x80");
-        black_pawn_three = new Pawn(0,0, "SB80x80");
-        black_pawn_four = new Pawn(0,0, "SB80x80");
-        black_pawn_five = new Pawn(0,0, "SB80x80");
-        black_pawn_six = new Pawn(0,0, "SB80x80");
-        black_pawn_seven = new Pawn(0,0, "SB80x80");
-        black_pawn_eight = new Pawn(0,0, "SB80x80");
+        black_pawn_one = new Pawn(0,0, "SB80x80", matrix_cords);
+        black_pawn_two = new Pawn(0,0, "SB80x80", matrix_cords);
+        black_pawn_three = new Pawn(0,0, "SB80x80", matrix_cords);
+        black_pawn_four = new Pawn(0,0, "SB80x80", matrix_cords);
+        black_pawn_five = new Pawn(0,0, "SB80x80", matrix_cords);
+        black_pawn_six = new Pawn(0,0, "SB80x80", matrix_cords);
+        black_pawn_seven = new Pawn(0,0, "SB80x80", matrix_cords);
+        black_pawn_eight = new Pawn(0,0, "SB80x80", matrix_cords);
         black_pawn_one_label = new JLabel(black_pawn_one.image);
         black_pawn_two_label = new JLabel(black_pawn_two.image);
         black_pawn_three_label = new JLabel(black_pawn_three.image);
@@ -455,43 +440,43 @@ public class Board {
 
 
         // White Pieces
-        white_rook_one = new Rook(0,0, "WT80x80");
-        white_rook_two = new Rook(0,0, "WT80x80");
+        white_rook_one = new Rook(0,0, "WT80x80", matrix_cords);
+        white_rook_two = new Rook(0,0, "WT80x80", matrix_cords);
         white_rook_one_label = new JLabel(white_rook_one.image);
         white_rook_two_label = new JLabel(white_rook_two.image);
         frame.add(white_rook_two_label);
         frame.add(white_rook_one_label);
 
-        white_knight_one = new Knight(0,0, "WS80x80");
-        white_knight_two = new Knight(0,0, "WS80x80");
+        white_knight_one = new Knight(0,0, "WS80x80", matrix_cords);
+        white_knight_two = new Knight(0,0, "WS80x80", matrix_cords);
         white_knight_one_label = new JLabel(white_knight_one.image);
         white_knight_two_label = new JLabel(white_knight_two.image);
         frame.add(white_knight_two_label);
         frame.add(white_knight_one_label);
 
-        white_bishop_one = new Bishop(0,0, "WL80x80");
-        white_bishop_two = new Bishop(0,0, "WL80x80");
+        white_bishop_one = new Bishop(0,0, "WL80x80", matrix_cords);
+        white_bishop_two = new Bishop(0,0, "WL80x80", matrix_cords);
         white_bishop_one_label = new JLabel(white_bishop_one.image);
         white_bishop_two_label = new JLabel(white_bishop_two.image);
         frame.add(white_bishop_one_label);
         frame.add(white_bishop_two_label);
 
-        white_queen = new Queen(0,0, "WD80x80");
+        white_queen = new Queen(0,0, "WD80x80", matrix_cords);
         white_queen_label = new JLabel(white_queen.image);
         frame.add(white_queen_label);
 
-        white_king = new King(0,0, "WK80x80");
+        white_king = new King(0,0, "WK80x80", matrix_cords);
         white_king_label = new JLabel(white_king.image);
         frame.add(white_king_label);
 
-        white_pawn_one = new Pawn(0,0, "WB80x80");
-        white_pawn_two = new Pawn(0,0, "WB80x80");
-        white_pawn_three = new Pawn(0,0, "WB80x80");
-        white_pawn_four = new Pawn(0,0, "WB80x80");
-        white_pawn_five = new Pawn(0,0, "WB80x80");
-        white_pawn_six = new Pawn(0,0, "WB80x80");
-        white_pawn_seven = new Pawn(0,0, "WB80x80");
-        white_pawn_eight = new Pawn(0,0, "WB80x80");
+        white_pawn_one = new Pawn(0,0, "WB80x80", matrix_cords);
+        white_pawn_two = new Pawn(0,0, "WB80x80", matrix_cords);
+        white_pawn_three = new Pawn(0,0, "WB80x80", matrix_cords);
+        white_pawn_four = new Pawn(0,0, "WB80x80", matrix_cords);
+        white_pawn_five = new Pawn(0,0, "WB80x80", matrix_cords);
+        white_pawn_six = new Pawn(0,0, "WB80x80", matrix_cords);
+        white_pawn_seven = new Pawn(0,0, "WB80x80", matrix_cords);
+        white_pawn_eight = new Pawn(0,0, "WB80x80", matrix_cords);
         white_pawn_one_label = new JLabel(white_pawn_one.image);
         white_pawn_two_label = new JLabel(white_pawn_two.image);
         white_pawn_three_label = new JLabel(white_pawn_three.image);
@@ -509,8 +494,13 @@ public class Board {
         frame.add(white_pawn_seven_label);
         frame.add(white_pawn_eight_label);
     }
-    public void cleanBoard(){
+    private void cleanBoard(){
+        print("");
         setupPieces();
+    }
+    private void print(String msg){
+        printline.setText("Console: ");
+        printline.append(msg);
     }
 
     public static void main(String[] args) {

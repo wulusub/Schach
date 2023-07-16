@@ -9,64 +9,26 @@
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
-public class Rook extends King{
+public class Rook{
     public ImageIcon image;
-    public int posx,posy;
-    public JFrame frame;
-    
-
-    public Rook(int x , int y, String path, JFrame frame_con){
-        posx = x;
-        posy = y;
-        image = new ImageIcon("images/"+path+".png");
-        frame = frame_con;
+    private int col, row;
+    private int[][][] matrix;
+    public boolean set;
+    public Rook(int x , int y , String path , int[][][] matrix_board){
+        col = x;
+        row = y;
+        matrix = new int[8][8][2];
+        matrix = matrix_board;
+        image = new ImageIcon("images/"+ path + ".png");
     }
-
-    //Bewegen nach Vorne
-    public int[] fwd_one(int distance){
-        if(posy-distance*100 > 0) {
-            for(int i=0; i>distance; i++){
-                fwd();
-            }
-            return new int[]{posx, posy-distance*100};
-        } else{
-            return new int[]{-1};
-        }
+    public int x(){
+        return matrix[col][row][0];
     }
-
-    //Bewegen nach Hinten
-    public int[] bwd_one(int distance){
-        if(posy+distance*100 < 800) {
-            for(int i=0; i>distance; i++){
-                bwd();
-            }
-            return new int[]{posx, posy+distance*100};
-        } else {
-            return new int[]{-1};
-        }
+    public int y(){
+        return matrix[col][row][1];
     }
-
-    //Bewegen nach Links
-    public int[] swl_one(int distance){
-        if(posx-distance*100 > 400) {
-            for(int i=0; i<distance; i++){
-                swl();
-            }
-            return new int[]{posx-distance*100, posy};
-        } else {
-            return new int[]{-1};
-        }
-    }
-    
-    //Bewegen nach Rechts
-    public int[] swr_one(int distance){
-        if(posx+distance*100 < 1200) {
-            for(int i=0; i<distance; i++){
-                swr();
-            }
-            return new int[]{posx+distance*100, posy};
-        } else {
-            return new int[]{-1};
-        }
+    public void changeCords(int colx, int rowy){
+        col = colx;
+        row = rowy;
     }
 }
