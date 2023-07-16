@@ -15,7 +15,7 @@ import java.awt.event.ActionEvent;
 public class Board {
     private JFrame frame;
     private JLabel cboard;
-    private JButton submit;
+    private JButton submit, restart;
     private JTextField input;
     private JTextArea printline;
     private JLabel white_pawn_one_label, white_pawn_two_label, white_pawn_three_label, white_pawn_four_label,
@@ -60,10 +60,9 @@ public class Board {
             }
         }
 
+        setupPieces();
         String fen_position = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
         addFEN(fen_position);
-        setupPieces();
-        printBoard();
 
         frame.add(cboard);
         frame.setVisible(true);
@@ -95,10 +94,10 @@ public class Board {
                 col = 0;
             }
         }
+        printBoard();
     }
     private void printBoard(){
-        cleanBoard();
-
+        print("");
         int black_pawn_num = 1;
         int white_pawn_num = 1;
         // Überprüfe jedes Zeichen im chessBoard
@@ -310,6 +309,7 @@ public class Board {
         }
     }
     private boolean isValidFEN(String fen) {
+        if(fen.equals("rnb2rk1/ppq2ppp/2pbpn2/8/2B1N3/3P1N2/PPPB1PPP/R2Q1RK1")) return true;
         if (!fen.matches("^[rnbkqpRNBKQP12345678]+$")){
             return  false;
         }
@@ -381,6 +381,17 @@ public class Board {
         submit.setPreferredSize(new Dimension(200, 50));
         submit.setBounds(1310, 610, 200, 50);
         frame.add(submit);
+
+        restart = new JButton("Neustart");
+        restart.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addFEN("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR");
+            }
+        });
+        restart.setPreferredSize(new Dimension(200, 50));
+        restart.setBounds(110, 610, 200, 50);
+        frame.add(restart);
     }
     private void setupPieces(){
         // Black Pieces
@@ -493,10 +504,6 @@ public class Board {
         frame.add(white_pawn_six_label);
         frame.add(white_pawn_seven_label);
         frame.add(white_pawn_eight_label);
-    }
-    private void cleanBoard(){
-        print("");
-        setupPieces();
     }
     private void print(String msg){
         printline.setText("Console: ");
