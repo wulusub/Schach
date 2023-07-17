@@ -19,14 +19,14 @@ public class King{
         matrix = matrix_board;
         image = new ImageIcon("images/"+ path + ".png");
     }
-    //Rückgabe der Position
+//Methode zur Rückgabe der Position
     public int x(){
         return matrix[col][row][0];
     }
     public int y(){
         return matrix[col][row][1];
     }
-    //Update der Position
+//Methode zur Koordinatenneuzuordnung
     public void changeCords(int colx, int rowy){
         col = colx;
         row = rowy;
