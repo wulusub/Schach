@@ -17,10 +17,10 @@ public class Bishop{
     }
     //Methoden zur Rückgabe der Position
     public int x(){
-        return matrix[col][row][0];     
+        return matrix[col][row][0];    //Aufruf der Matrix zur Rückgabe der gespeicherten Position     
     }
     public int y(){
-        return matrix[col][row][1];
+        return matrix[col][row][1];    //Aufruf der Matrix zur Rückgabe der gespeicherten Position
     }
     //Metode zur Koordinatenneuzuordnung
     public void changeCords(int colx, int rowy){
