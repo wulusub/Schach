@@ -338,7 +338,7 @@ public class Board {
                 && letterCount(fen, 'N') <= 2 && letterCount(fen, 'N') <= 2 && letterCount(fen, 'b') <= 2 && letterCount(fen, 'B') <= 2
                 && letterCount(fen, 'k') <= 1 && letterCount(fen, 'K') <= 1 && letterCount(fen, 'q') <= 1 && letterCount(fen, 'Q') <= 1;
     }
-//idk
+//Zählen wie viele Zeichen im String sind
     private  int letterCount(String inputString, char c) {
         int count = 0;
 
