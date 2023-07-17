@@ -26,7 +26,7 @@ public class King{
     public int y(){
         return matrix[col][row][1];
     }
-    //Ändern der Position bzw. Bewegen
+    //Update der Position
     public void changeCords(int colx, int rowy){
         col = colx;
         row = rowy;
