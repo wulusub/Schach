@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class Board {
+//Initialisieren der benötigten Figuren, dem Brett und den Buttons etc.
     private JFrame frame;
     private JLabel cboard;
     private JButton submit, restart;
@@ -39,6 +40,7 @@ public class Board {
     private int[][][] matrix_cords;
     private String[][] chessboard;
 
+//Startup des Bretts und Figuren etc
     public Board() {startSetup(); }
     private void startSetup(){
         /// Setup des Frames
@@ -61,15 +63,15 @@ public class Board {
         }
 
         setupPieces();
-        String fen_position = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
+        String fen_position = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";    //Code zur Bestimmung einer Schachstellung
         addFEN(fen_position);
 
         frame.add(cboard);
         frame.setVisible(true);
     }
+//Lesen des FEN-Codes und Übersetzen dessen
     private void addFEN(String pgn) {
-        // Ersetze alle '/' durch leere Zeichen, um die Zeilen zu trennen
-        pgn = pgn.replaceAll("/", "");
+        pgn = pgn.replaceAll("/", "");    // Ersetze alle '/' durch leere Zeichen, um die Zeilen zu trennen
 
         int row = 0;
         int col = 0;
@@ -96,6 +98,7 @@ public class Board {
         }
         printBoard();
     }
+//Ausgabe des Bretts und Positionieren der Figuren
     private void printBoard(){
         print("");
         int black_pawn_num = 1;
@@ -299,6 +302,7 @@ public class Board {
         }
 
     }
+//Test auf valide FEN
     private void inputEval(String text_input){
         if (!isValidFEN(text_input)){
             print("Invalider FEN");
@@ -334,6 +338,7 @@ public class Board {
                 && letterCount(fen, 'N') <= 2 && letterCount(fen, 'N') <= 2 && letterCount(fen, 'b') <= 2 && letterCount(fen, 'B') <= 2
                 && letterCount(fen, 'k') <= 1 && letterCount(fen, 'K') <= 1 && letterCount(fen, 'q') <= 1 && letterCount(fen, 'Q') <= 1;
     }
+//idk
     private  int letterCount(String inputString, char c) {
         int count = 0;
 
@@ -345,6 +350,7 @@ public class Board {
 
         return count;
     }
+//Frame Setup
     private void setupFrame(){
         frame = new JFrame("Schach - Roman, Nick");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -393,6 +399,7 @@ public class Board {
         restart.setBounds(110, 610, 200, 50);
         frame.add(restart);
     }
+//Piece Setup
     private void setupPieces(){
         // Black Pieces
         black_rook_one = new Rook(0,0, "ST80x80", matrix_cords);
