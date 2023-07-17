@@ -15,14 +15,14 @@ public class Bishop{
         matrix = matrix_board;
         image = new ImageIcon("images/"+ path + ".png");
     }
-    //Methoden zur Rückgabe der Position
+//Methoden zur Rückgabe der Position
     public int x(){
         return matrix[col][row][0];    //Aufruf der Matrix zur Rückgabe der gespeicherten Position     
     }
     public int y(){
         return matrix[col][row][1];    //Aufruf der Matrix zur Rückgabe der gespeicherten Position
     }
-    //Metode zur Koordinatenneuzuordnung
+//Metode zur Koordinatenneuzuordnung
     public void changeCords(int colx, int rowy){
         col = colx;
         row = rowy;
