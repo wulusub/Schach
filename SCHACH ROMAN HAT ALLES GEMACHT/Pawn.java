@@ -19,12 +19,14 @@ public class Pawn{
         matrix = matrix_board;
         image = new ImageIcon("images/"+ path + ".png");
     }
+ //Methoden zur Rückgabe der Position
     public int x(){
         return matrix[col][row][0];
     }
     public int y(){
         return matrix[col][row][1];
     }
+ //Methode zur Koordinatenneuzuordnung
     public void changeCords(int colx, int rowy){
         col = colx;
         row = rowy;
