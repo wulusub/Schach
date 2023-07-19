@@ -39,13 +39,13 @@ public class Board {
     private King white_king, black_king;
     private int[][][] matrix_cords;
     private String[][] chessboard;
-
+    public Datenbank datenbank = new Datenbank();
+    
 //Startup des Bretts und Figuren etc
     public Board() {startSetup(); }
     private void startSetup(){
         /// Setup des Frames
         setupFrame();
-
         chessboard = new String[8][8];
 
         /// Setup von der Brett-Matrix für Koordinaten
@@ -304,8 +304,9 @@ public class Board {
     }
 //Test auf valide FEN
     private void inputEval(String text_input){
-        if (!isValidFEN(text_input)){
+         if (!isValidFEN(text_input)){
             print("Invalider FEN");
+            datenbank.datenEinfuegen(text_input);
         } else {
             print("Valider FEN");
             addFEN(text_input);
@@ -393,6 +394,7 @@ public class Board {
             @Override
             public void actionPerformed(ActionEvent e) {
                 addFEN("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR");
+                datenbank.tabelleLeeren();
             }
         });
         restart.setPreferredSize(new Dimension(200, 50));
